@@ -7,6 +7,8 @@ app = Flask(__name__)
 def index():
     ip = request.remote_addr
 
+    print(f"Visitor IP: {ip}")
+
     with open("visitors.log", "a") as f:
         f.write(f"{datetime.now()} - {ip}\n")
 
