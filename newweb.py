@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    ip = ip = request.headers.get("X-Forwarded-For", request.remote_addr)
-    
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr)
+
     print(f"Visitor IP: {ip}")
 
     with open("visitors.log", "a") as f:
