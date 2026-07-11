@@ -6,8 +6,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    print(request.headers)
+
     ip = request.headers.get("X-Forwarded-For", request.remote_addr)
-    ip = ip.split(",")[0].strip()
+    print("X-Forwarded-For:", ip)
 
     response = requests.get(f"http://ip-api.com/json/{ip}")
     data = response.json()
